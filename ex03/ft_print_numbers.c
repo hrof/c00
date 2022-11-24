@@ -6,17 +6,18 @@
 /*   By: rzhdanov <rzhdanov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:25:15 by rzhdanov          #+#    #+#             */
-/*   Updated: 2022/11/24 14:29:40 by rzhdanov         ###   ########.fr       */
+/*   Updated: 2022/11/24 18:39:55 by rzhdanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_print_numbers(void);
+void	ft_print_numbers(void);
 
-void ft_print_numbers(void)
+void	ft_print_numbers(void)
 {
 	char	n;
+
 	n = 48;
 	while (n <= 57)
 	{
@@ -24,8 +25,9 @@ void ft_print_numbers(void)
 		n ++;
 	}
 }
-
-int main(void)
+/*
+int	main(void)
 {
 	ft_print_numbers();
 }
+*/

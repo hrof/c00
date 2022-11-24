@@ -6,7 +6,7 @@
 /*   By: rzhdanov <rzhdanov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:46:03 by rzhdanov          #+#    #+#             */
-/*   Updated: 2022/11/24 20:20:17 by rzhdanov         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:28:12 by rzhdanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int main(void)
 				ft_put_several_chars(c, d, u);
 				if (c < '7')
 				{
-					ft_putchar(m);
+					write(1, ", ", 2);
 				}
 				u ++;
 			}

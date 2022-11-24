@@ -6,7 +6,7 @@
 /*   By: rzhdanov <rzhdanov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:46:03 by rzhdanov          #+#    #+#             */
-/*   Updated: 2022/11/24 20:12:37 by rzhdanov         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:20:17 by rzhdanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ int main(void)
 			while(u <= '9')
 			{
 				ft_put_several_chars(c, d, u);
-				ft_putchar(m);
+				if (c < '7')
+				{
+					ft_putchar(m);
+				}
 				u ++;
 			}
 			d ++;

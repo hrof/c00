@@ -1,7 +1,15 @@
 #include <unistd.h>
+void ft_putchar(char c);
+
+void ft_putchar(char c)
+{
+	write(1, &c, 2);
+}
 
 int main(void)
 {
-	write(1, "Hello World\n", 12);
+	char c = 'a';
+	ft_putchar(c);
 	return(0);
 }
+

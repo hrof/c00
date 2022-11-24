@@ -6,7 +6,7 @@
 /*   By: rzhdanov <rzhdanov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:46:03 by rzhdanov          #+#    #+#             */
-/*   Updated: 2022/11/24 20:05:38 by rzhdanov         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:12:37 by rzhdanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
+void	ft_put_several_chars(char c, char d, char u);
 
+void	ft_put_several_chars(char c, char d, char u)
+{
+	ft_putchar(c);
+	ft_putchar(d);
+	ft_putchar(u);
+}
 
 int main(void)
 {
@@ -38,9 +45,7 @@ int main(void)
 			u = d + 1;
 			while(u <= '9')
 			{
-				ft_putchar(c);
-				ft_putchar(d);
-				ft_putchar(u);
+				ft_put_several_chars(c, d, u);
 				ft_putchar(m);
 				u ++;
 			}

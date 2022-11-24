@@ -6,7 +6,7 @@
 /*   By: rzhdanov <rzhdanov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:49:15 by rzhdanov          #+#    #+#             */
-/*   Updated: 2022/11/24 14:53:27 by rzhdanov         ###   ########.fr       */
+/*   Updated: 2022/11/24 14:56:20 by rzhdanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putchar(char c);
 
 void	ft_putchar(char c)
 {
-	write(1, &c, 2);
+	write(1, &c, 1);
 }
 
 int	main(void)

@@ -6,7 +6,7 @@
 /*   By: rzhdanov <rzhdanov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:46:03 by rzhdanov          #+#    #+#             */
-/*   Updated: 2022/11/24 20:32:35 by rzhdanov         ###   ########.fr       */
+/*   Updated: 2022/11/24 21:08:44 by rzhdanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,20 @@ void	ft_put_several_chars(char c, char d, char u)
 	}
 }
 
-int main(void)
+int	ft_print_comb(void)
 {
 	char	c;
 	char	d;
 	char	u;
 
 	c = '0';
-
-	while(c <= '7')
+	while (c <= '7')
 	{
 		d = c + 1;
-		while(d <= '8')
+		while (d <= '8')
 		{
 			u = d + 1;
-			while(u <= '9')
+			while (u <= '9')
 			{
 				ft_put_several_chars(c, d, u);
 				u ++;
@@ -55,5 +54,11 @@ int main(void)
 		}
 		c ++;
 	}
-	return 0;
+	return (0);
 }
+/*
+int	main(void)
+{
+	ft_print_comb();
+}
+*/

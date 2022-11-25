@@ -4,9 +4,17 @@
 int main () {
    int ch;
 
-   ch = 76;
+   ch = 10;
 
    printf("%d\n", ch );
+   
+   ch /= 10;
+
+   printf("%d\n", ch);
+
+   ch /= 10;
+
+   printf("%d\n", ch);
 
    return(0);
 }

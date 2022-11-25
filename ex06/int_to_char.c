@@ -11,11 +11,26 @@ void	ft_int_to_char(int n);
 
 void	ft_int_to_char(int n)
 {
-	ft_putchar((n % 10) + '0');
+	int	reverse;
+	int	multiplier;
+	
+	reverse = 0;
+	multiplier = 1;
+
+	reverse += (n % 10) * multiplier;	
+	multiplier *= 10;
 	n /= 10;
-	ft_putchar((n % 10) + '0');
+	reverse += (n % 10) * multiplier;
+	multiplier *= 10;
 	n /= 10;
-	ft_putchar((n % 10) + '0');
+	reverse += (n % 10) * multiplier;
+	n /= 10;
+
+	ft_putchar((reverse % 10) + '0');
+	reverse /= 10;
+	ft_putchar((reverse % 10) + '0');
+	reverse /= 10;
+	ft_putchar((reverse % 10) + '0');
 }
 
 int main(void)

@@ -15,13 +15,13 @@ void	ft_int_to_char(int n)
 	int	multiplier;
 	
 	reverse = 0;
-	multiplier = 1;
+	multiplier = 100;
 
 	reverse += (n % 10) * multiplier;	
-	multiplier *= 10;
+	multiplier /= 10;
 	n /= 10;
 	reverse += (n % 10) * multiplier;
-	multiplier *= 10;
+	multiplier /= 10;
 	n /= 10;
 	reverse += (n % 10) * multiplier;
 	n /= 10;

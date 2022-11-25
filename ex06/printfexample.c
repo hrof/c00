@@ -6,7 +6,7 @@ int main () {
 
    ch = 76;
 
-   printf("ASCII value = %d, Character = %c\n", ch , ch );
+   printf("%d\n", ch );
 
    return(0);
 }

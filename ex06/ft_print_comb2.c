@@ -13,49 +13,88 @@
 #include <unistd.h>
 
 void	ft_putchar(char c);
+int		ft_reverse_int(int n);
+void	ft_putnbr(int nb);
+void	ft_print_two_int(int f, int s);
+void	ft_print_comb2(void);
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_print_mul_char(char d1, char u1, char d2, char u2);
-
-void	ft_print_mul_char(char d1, char u1, char d2, char u2)
+int	ft_reverse_int(int n)
 {
-	ft_putchar(d1);
-	ft_putchar(u1);
-	wite(1, ' ', 1);
-	ft_putchar(d2);
-	ft_putchar(u2);
-	if (d1 != 9 && u1 != 8)
+	int	multiplier;
+	int	buffer;
+
+	buffer = n;
+	multiplier = 1;
+	while (buffer > 0)
 	{
-		write(1, ", ", 2);
+		buffer /= 10;
+		if (buffer > 0)
+		{
+			multiplier *= 10;
+		}
+	}
+	while (n > 0)
+	{
+		buffer += (n % 10) * multiplier;
+		multiplier /= 10;
+		n /= 10;
+	}
+	return (buffer);
+}
+
+void	ft_putnbr(int nb)
+{
+	char	digit;
+
+	nb = ft_reverse_int(nb);
+	while (nb > 0)
+	{
+		digit = (nb % 10) + 48;
+		write(1, &digit, 1);
+		nb /= 10;
+	}
+}
+
+void	ft_print_two_int(int f, int s)
+{
+	char	c;
+
+	c = '0';
+	if (f < 10)
+		ft_putchar(c);
+	ft_putnbr(f);
+	if (s < 10)
+		ft_putchar(c);
+	ft_putnbr(s);
+}
+
+void	ft_print_comb2(void)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < 99)
+	{
+		y = x + 1;
+		while (y < 100)
+		{
+			ft_print_two_int(x, y);
+			if (x < 98 && y < 99)
+				write(1, ", ", 2);
+			y ++;
+		}
+		x ++;
 	}
 }
 
 int	main(void)
 {
-	char	d1;
-	char	u1;
-	char	d2;
-	char	u2;
-
-	d1 = '0';
-	u1 = '0';
-
-	while (d1 != 9 && u1 != 8)
-	{
-		u2 = u1 + 1;
-		d2 = 0;
-		while (d2 <= '9')
-		{
-			u2 = d2;
-			while (u2 <= '9')
-			{
-				u2 ++;
-			}
-			d2 ++
-		}
-	}
+	ft_print_comb2();
+	return (0);
 }

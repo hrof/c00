@@ -12,65 +12,98 @@
 
 #include <unistd.h>
 
-void	ft_putchar(char c);
-int		ft_reverse_int(int n);
-void	ft_putnbr(int nb);
-void	ft_print_two_int(int f, int s);
-void	ft_print_comb2(void);
+int					trailing_order_mag(int nb);
+unsigned long int	ft_find_order_mag(int nb);
+unsigned long int	ft_reverse_int(int nb);
+void				ft_putnbr(int nb);
+void				ft_print_comb2(void);
 
-void	ft_putchar(char c)
+int	trailing_order_mag(int nb)
 {
-	write(1, &c, 1);
+	int	extra_om;
+
+	extra_om = 1;
+	if (nb == 0)
+		return (extra_om);
+	while (nb % 10 == 0)
+	{
+		nb /= 10;
+		extra_om *= 10;
+	}
+	return (extra_om);
 }
 
-int	ft_reverse_int(int n)
+unsigned long int	ft_find_order_mag(int nb)
 {
-	int	multiplier;
-	int	buffer;
+	unsigned long int	multiplier;
 
-	buffer = n;
 	multiplier = 1;
+	if (nb < 0)
+		nb *= -1;
+	while (nb > 0)
+	{
+		nb /= 10;
+		if (nb > 0)
+			multiplier *= 10;
+	}
+	return (multiplier);
+}
+
+unsigned long int	ft_reverse_int(int nb)
+{
+	unsigned long int	multiplier;
+	unsigned long int	result;
+	unsigned long int	buffer;
+
+	result = 0;
+	buffer = 0;
+	while (nb % 10 == 0 && nb != 0)
+	{
+		nb /= 10;
+	}
+	if (nb == -2147483648)
+		nb ++;
+	multiplier = ft_find_order_mag(nb);
+	if (nb < 0)
+		nb *= -1;
+	buffer += nb;
 	while (buffer > 0)
 	{
-		buffer /= 10;
-		if (buffer > 0)
-		{
-			multiplier *= 10;
-		}
-	}
-	while (n > 0)
-	{
-		buffer += (n % 10) * multiplier;
+		if (buffer % 10 > 0)
+			result += (buffer % 10) * multiplier;
 		multiplier /= 10;
-		n /= 10;
+		buffer /= 10;
 	}
-	return (buffer);
+	return (result);
 }
 
 void	ft_putnbr(int nb)
 {
-	char	digit;
+	unsigned long int	extra_order_of_magnitude;
+	char				digit;
+	unsigned long int	buffer;
+	unsigned long int	extra_neg_unit;
 
-	nb = ft_reverse_int(nb);
-	while (nb > 0)
+	extra_neg_unit = 0;
+	if (nb == 0)
+		write(1, "0", 1);
+	if (nb < 0)
+		write(1, "-", 1);
+	if (nb == -2147483648)
+		extra_neg_unit += 1000000000;
+	extra_order_of_magnitude = trailing_order_mag(nb);
+	buffer = ft_reverse_int(nb) + extra_neg_unit;
+	while (buffer > 0)
 	{
-		digit = (nb % 10) + 48;
+		digit = (buffer % 10) + 48;
 		write(1, &digit, 1);
-		nb /= 10;
+		buffer /= 10;
 	}
-}
-
-void	ft_print_two_int(int f, int s)
-{
-	char	c;
-
-	c = '0';
-	if (f < 10)
-		ft_putchar(c);
-	ft_putnbr(f);
-	if (s < 10)
-		ft_putchar(c);
-	ft_putnbr(s);
+	while (extra_order_of_magnitude > 9)
+	{
+		write(1, "0", 1);
+		extra_order_of_magnitude /= 10;
+	}
 }
 
 void	ft_print_comb2(void)
@@ -84,17 +117,26 @@ void	ft_print_comb2(void)
 		y = x + 1;
 		while (y < 100)
 		{
-			ft_print_two_int(x, y);
-			if (x < 98 && y < 99)
+			if (x == 0)
+				write(1, "0", 1);
+			else if (x < 10)
+				write(1, "0", 1);
+			ft_putnbr(x);
+			write(1, " ", 1);
+			if (y < 10)
+				write(1, "0", 1);
+			ft_putnbr(y);
+			if (x < 98 || y < 99)
 				write(1, ", ", 2);
 			y ++;
 		}
 		x ++;
 	}
 }
-
+/*
 int	main(void)
 {
 	ft_print_comb2();
 	return (0);
 }
+*/

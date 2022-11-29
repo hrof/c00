@@ -6,7 +6,7 @@
 /*   By: rzhdanov <rzhdanov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:01:57 by rzhdanov          #+#    #+#             */
-/*   Updated: 2022/11/28 14:59:12 by rzhdanov         ###   ########.fr       */
+/*   Updated: 2022/11/29 20:01:14 by rzhdanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ void	ft_recursion(int start, int end, int limit)
 {
 	int	fluid_part;
 
-	if (end < 9)
+	if (end < 0)
+		ft_put_fixed_part(0, 9);
+	else if (end < 9)
 	{
 		fluid_part = end + 1;
 		while (fluid_part < 10)
@@ -68,7 +70,7 @@ int	main(void)
 {
 	int	counter;
 
-	counter = 2;
+	counter = 1;
 	while (counter < 10)
 	{
 		ft_print_combn(counter);
